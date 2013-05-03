@@ -64,14 +64,14 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConvexHull.cs" />
+    <Compile Include="Engine\FPSCounter.cs" />
+    <Compile Include="GamePlay\ConvexHull.cs" />
     <Compile Include="CustomBlendStates.cs" />
     <Compile Include="Engine\BoundingCircle.cs" />
     <Compile Include="Engine\BoundingRect.cs" />
     <Compile Include="GamePlay\ObjectManager.cs" />
     <Compile Include="GamePlay\Player.cs" />
-    <Compile Include="IConvexHull.cs" />
-    <Compile Include="LightSource.cs" />
+    <Compile Include="GamePlay\LightSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\AppManifest.xml">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

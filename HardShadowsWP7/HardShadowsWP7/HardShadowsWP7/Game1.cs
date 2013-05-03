@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using HardShadows.GamePlay;
+using HardShadows.Engine;
 
 namespace HardShadows
 {
@@ -27,10 +28,7 @@ namespace HardShadows
 
         Color ambientColor;
 
-        SpriteFont FPSFont;
-        int _total_frames = 0;
-        float _elapsed_time = 0.0f;
-        int _fps = 0;
+        FPSCounter fpsCounter;
 
         public Game1()
         {
@@ -186,7 +184,7 @@ namespace HardShadows
 
             ambientColor = new Color(15, 15, 15, 255);
 
-            FPSFont = Content.Load<SpriteFont>("FPSFont");
+            fpsCounter = new FPSCounter(Content.Load<SpriteFont>("FPSFont"));
         }
 
         /// <summary>
@@ -205,15 +203,7 @@ namespace HardShadows
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            _elapsed_time += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
- 
-            // 1 Second has passed
-            if (_elapsed_time >= 1000.0f)
-            {
-                _fps = _total_frames;
-                _total_frames = 0;
-                _elapsed_time = 0;
-            }
+            fpsCounter.Update(gameTime);
 
             TouchCollection touches = TouchPanel.GetState();
             if (touches.Count > 0)
@@ -267,9 +257,9 @@ namespace HardShadows
             spriteBatch.Draw(player.Texture, player.Position, null, ObjectManager.Instance.Lights[0].Color, 0, center, scale, SpriteEffects.None, 0);
             spriteBatch.End();
 
-            ++_total_frames;
+            ++fpsCounter.TotalFrames;
             spriteBatch.Begin();
-            spriteBatch.DrawString(FPSFont, string.Format("{0}", _fps),
+            spriteBatch.DrawString(fpsCounter.Font, string.Format("{0}", fpsCounter.FPS),
                 new Vector2(10.0f, 20.0f), Color.White);
             spriteBatch.End();
 
