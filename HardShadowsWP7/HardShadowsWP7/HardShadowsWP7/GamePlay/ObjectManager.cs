@@ -33,15 +33,6 @@ namespace HardShadows.GamePlay
             }
         }
 
-        List<ConvexHull> staticObjects;
-        public List<ConvexHull> StaticObjects
-        {
-            get
-            {
-                return staticObjects;
-            }
-        }
-
         List<LightSource> lights;
         public List<LightSource> Lights
         {
@@ -119,11 +110,17 @@ namespace HardShadows.GamePlay
         private ObjectManager()
         {
             objects = new List<ConvexHull>();
-            staticObjects = new List<ConvexHull>();
             lights = new List<LightSource>();
             staticLights = new List<LightSource>();
 
             cacheIsDirty = true;
+        }
+
+        public void Clear()
+        {
+            lights.Clear();
+            staticLights.Clear();
+            objects.Clear();
         }
     }
 }

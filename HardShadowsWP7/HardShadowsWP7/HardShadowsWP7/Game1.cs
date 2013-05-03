@@ -24,11 +24,9 @@ namespace HardShadows
 
         Player player;
 
-        Texture2D tileTexture;
-
-        Color ambientColor;
-
         FPSCounter fpsCounter;
+
+        Level level;
 
         public Game1()
         {
@@ -39,107 +37,6 @@ namespace HardShadows
             graphics.PreferredBackBufferHeight = 480;
         }
 
-        private void BuildObjectList()
-        {
-
-            ConvexHull.InitializeStaticMembers(GraphicsDevice);
-            Color wallColor = Color.Black;
-
-            Vector2[] points = new Vector2[4];
-
-            points[0] = new Vector2(0, 0);
-            points[1] = new Vector2(0, 20);
-            points[2] = new Vector2(580, 20);
-            points[3] = new Vector2(580, 0);
-
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(0, 140)));
-            //ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(0, 440)));
-
-            points[0] = new Vector2(0, 0);
-            points[1] = new Vector2(0, 140);
-            points[2] = new Vector2(20, 140);
-            points[3] = new Vector2(20, 0);
-
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(580, 140)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(580, 320)));
-
-
-            points[0] = new Vector2(0, 0);
-            points[1] = new Vector2(0, 20);
-            points[2] = new Vector2(20, 20);
-            points[3] = new Vector2(20, 0);
-
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(640, 140)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(640, 240)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(640, 340)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(640, 440)));
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(720, 140)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(720, 240)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(720, 340)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(720, 440)));
-
-
-            points[0] = new Vector2(0, 0);
-            points[1] = new Vector2(0, 80);
-            points[2] = new Vector2(20, 80);
-            points[3] = new Vector2(20, 0);
-
-
-            /*ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(100, 500)));
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(200, 460)));
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(300, 500)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(400, 460)));
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(500, 500)));*/
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(580, 460)));
-
-
-            points[0] = new Vector2(0, 0);
-            points[1] = new Vector2(0, 40);
-            points[2] = new Vector2(60, 40);
-            points[3] = new Vector2(60, 0);
-
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(160, 280)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(360, 280)));
-
-            points[0] = new Vector2(0, -20);
-            points[1] = new Vector2(-20, 0);
-            points[2] = new Vector2(0, 20);
-            points[3] = new Vector2(20, 0);
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(460, 80)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(560, 80)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(160, 80)));
-
-            points = new Vector2[8];
-            float angleSlice = MathHelper.TwoPi / 8.0f;
-
-            for (int i = 0; i < 8; i++)
-            {
-                points[i] = new Vector2((float)Math.Sin(angleSlice * i), (float)Math.Cos(angleSlice * i)) * 20;
-            }
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(140, 220)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(240, 220)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(340, 220)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(440, 220)));
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(140, 380)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(240, 380)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(340, 380)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(440, 380)));
-
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(80, 300)));
-            ObjectManager.Instance.Objects.Add(new ConvexHull(this, points, wallColor, new Vector2(500, 300)));
-        }
-
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -148,24 +45,20 @@ namespace HardShadows
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            BuildObjectList();
+
+            ConvexHull.InitializeStaticMembers(GraphicsDevice);
+
+            level = new Level(this);
+
+            level.Build();
 
             Texture2D playerTexture = Content.Load<Texture2D>("lightSphere");
             Vector2 playerPosition = new Vector2(100, 100);
 
             player = new Player(playerTexture, playerPosition, Color.CornflowerBlue, 32);
-
-            tileTexture = Content.Load<Texture2D>("tile");
             
             Texture2D lightTexture = Content.Load<Texture2D>("light");
             ObjectManager.Instance.Lights.Add(new LightSource(lightTexture, player.Color, 120, playerPosition));
-
-            //ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Crimson, 250, new Vector2(40, 400)));
-            ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Orange, 250, new Vector2(40, 200)));
-            ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Gold, 200, new Vector2(700, 450)));
-            ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Red, 150, new Vector2(510, 30)));
-            ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.ForestGreen, 300, new Vector2(50, 540)));
-
 
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
             ObjectManager.Instance.LightMap = new RenderTarget2D(GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight, false,
@@ -181,8 +74,6 @@ namespace HardShadows
             alphaClearTexture = Content.Load<Texture2D>("AlphaOne");
 
             ObjectManager.Instance.CacheIsDirty = true;
-
-            ambientColor = new Color(15, 15, 15, 255);
 
             fpsCounter = new FPSCounter(Content.Load<SpriteFont>("FPSFont"));
         }
@@ -280,7 +171,7 @@ namespace HardShadows
 
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
             GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
-            spriteBatch.Draw(tileTexture, Vector2.Zero, source, Color.White, 0, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
+            spriteBatch.Draw(level.TileTexture, Vector2.Zero, source, Color.White, 0, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
             spriteBatch.End();
         }
 
@@ -289,7 +180,7 @@ namespace HardShadows
             GraphicsDevice.SetRenderTarget(ObjectManager.Instance.LightMap);
 
             //clear to some small ambient light
-            GraphicsDevice.Clear(ambientColor);
+            GraphicsDevice.Clear(level.AmbientColor);
 
             // Draw the cached lightmap to the full lightmap
             spriteBatch.Begin(SpriteSortMode.Immediate, CustomBlendStates.MultiplyWithAlpha);
@@ -304,7 +195,7 @@ namespace HardShadows
             GraphicsDevice.SetRenderTarget(ObjectManager.Instance.LightCache);
 
             //clear to some small ambient light
-            GraphicsDevice.Clear(ambientColor);
+            GraphicsDevice.Clear(level.AmbientColor);
 
 
             DrawShadowsToRenderTarget(ObjectManager.Instance.StaticLights);

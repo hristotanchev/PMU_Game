@@ -69,6 +69,7 @@
     <Compile Include="CustomBlendStates.cs" />
     <Compile Include="Engine\BoundingCircle.cs" />
     <Compile Include="Engine\BoundingRect.cs" />
+    <Compile Include="GamePlay\Level.cs" />
     <Compile Include="GamePlay\ObjectManager.cs" />
     <Compile Include="GamePlay\Player.cs" />
     <Compile Include="GamePlay\LightSource.cs" />
