@@ -14,3 +14,4 @@ ERROR LIST
 1. if eny error occure follow steps 1 and 2
 2. you can use : git stash
 3. and pull or push depends from error 
+ check history
