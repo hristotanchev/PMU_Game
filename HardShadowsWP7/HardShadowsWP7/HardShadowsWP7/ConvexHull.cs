@@ -225,7 +225,7 @@ namespace HardShadows
             game.GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.TriangleStrip, shadowVertices, 0, shadowVertexCount * 2 - 2);
         }
 
-        private bool Intersects(BoundingCircle intersector)
+        public bool Intersects(BoundingCircle intersector)
         {
             //(lightSource.Position - (center + position)).LengthSquared() > (boundingRadius + lightSource.Range) * (boundingRadius + lightSource.Range)
             if (sphereBox)
