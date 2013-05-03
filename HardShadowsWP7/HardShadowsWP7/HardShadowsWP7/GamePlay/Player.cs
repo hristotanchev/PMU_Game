@@ -59,7 +59,7 @@ namespace HardShadows.GamePlay
             this.color = color;
             Size = size;
 
-            boundingBody = new BoundingCircle(position, size / 2);
+            boundingBody = new BoundingCircle(position, size / 3);
         }
     }
 }

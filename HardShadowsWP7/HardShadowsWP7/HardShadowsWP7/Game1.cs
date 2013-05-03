@@ -96,6 +96,8 @@ namespace HardShadows
 
             fpsCounter.Update(gameTime);
 
+            Vector2 currenet_position = player.Position;
+
             TouchCollection touches = TouchPanel.GetState();
             if (touches.Count > 0)
             {
@@ -104,12 +106,30 @@ namespace HardShadows
                     player.Position = touches[0].Position;
                 }
             }
-
-            ObjectManager.Instance.Lights[0].Position = player.Position;
-
             //double time = gameTime.TotalGameTime.TotalSeconds / 4.0f;
             //lights[3].Position = new Vector2(700, 300 + (float)Math.Sin(time) * 200);
+            Vector2 delta_position = player.Position - currenet_position;
 
+            foreach (ConvexHull hull in ObjectManager.Instance.Objects)
+            {
+                if (hull.Intersects(player.BoundingBody))
+                {
+                    Vector2 delta_x = new Vector2(delta_position.X, 0);
+                    player.Position = currenet_position + delta_x;
+                    if (hull.Intersects(player.BoundingBody))
+                    {
+                        Vector2 delta_y = new Vector2(0, delta_position.Y);
+                        player.Position = currenet_position + delta_y;
+                        if (hull.Intersects(player.BoundingBody))
+                        {
+                            player.Position = currenet_position;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            ObjectManager.Instance.Lights[0].Position = player.Position;
             base.Update(gameTime);
         }
 

@@ -82,7 +82,7 @@ namespace HardShadows.Engine
             Vector2 rectSize = rect.Max - rect.Min;
 
             circleDistance.X = Math.Abs(center.X - (rect.Min.X + rectSize.X/2));
-            circleDistance.Y = Math.Abs(center.Y - rect.Min.Y);
+            circleDistance.Y = Math.Abs(center.Y - (rect.Min.Y + rectSize.Y / 2));
 
             if (circleDistance.X > rectSize.X / 2 + radius) return false;
             if (circleDistance.Y > rectSize.Y / 2 + radius) return false;
