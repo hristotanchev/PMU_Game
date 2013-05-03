@@ -20,8 +20,8 @@ namespace HardShadows
         SpriteBatch spriteBatch;
        
         Texture2D alphaClearTexture;
-        Texture2D playerTexture;
-        Vector2 playerPosition;
+
+        Player player;
 
         Texture2D tileTexture;
 
@@ -152,13 +152,15 @@ namespace HardShadows
             spriteBatch = new SpriteBatch(GraphicsDevice);
             BuildObjectList();
 
-            playerTexture = Content.Load<Texture2D>("lightSphere");
-            playerPosition = new Vector2(100, 100);
+            Texture2D playerTexture = Content.Load<Texture2D>("lightSphere");
+            Vector2 playerPosition = new Vector2(100, 100);
+
+            player = new Player(playerTexture, playerPosition, Color.CornflowerBlue, 16);
 
             tileTexture = Content.Load<Texture2D>("tile");
             
             Texture2D lightTexture = Content.Load<Texture2D>("light");
-            ObjectManager.Instance.Lights.Add(new LightSource(lightTexture, Color.CornflowerBlue, 120, playerPosition));
+            ObjectManager.Instance.Lights.Add(new LightSource(lightTexture, player.Color, 120, playerPosition));
 
             //ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Crimson, 250, new Vector2(40, 400)));
             ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Orange, 250, new Vector2(40, 200)));
@@ -218,11 +220,11 @@ namespace HardShadows
             {
                 if (touches[0].State == TouchLocationState.Moved || touches[0].State == TouchLocationState.Pressed)
                 {
-                    playerPosition = touches[0].Position;
+                    player.Position = touches[0].Position;
                 }
             }
 
-            ObjectManager.Instance.Lights[0].Position = playerPosition;
+            ObjectManager.Instance.Lights[0].Position = player.Position;
 
             //double time = gameTime.TotalGameTime.TotalSeconds / 4.0f;
             //lights[3].Position = new Vector2(700, 300 + (float)Math.Sin(time) * 200);
@@ -258,11 +260,11 @@ namespace HardShadows
             spriteBatch.End();
 
             //draw player, fully lit
-            Vector2 center = new Vector2(playerTexture.Width / 2, playerTexture.Height / 2);
-            float scale = 16 / ((float)playerTexture.Width / 2.0f);
+            Vector2 center = new Vector2(player.Texture.Width / 2, player.Texture.Height / 2);
+            float scale = 16 / ((float)player.Texture.Width / 2.0f);
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             //Vector2 origin = new Vector2(playerTexture.Width, playerTexture.Height) / 2.0f;
-            spriteBatch.Draw(playerTexture, playerPosition, null, ObjectManager.Instance.Lights[0].Color, 0, center, scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(player.Texture, player.Position, null, ObjectManager.Instance.Lights[0].Color, 0, center, scale, SpriteEffects.None, 0);
             spriteBatch.End();
 
             ++_total_frames;

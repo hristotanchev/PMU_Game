@@ -69,6 +69,7 @@
     <Compile Include="Engine\BoundingCircle.cs" />
     <Compile Include="Engine\BoundingRect.cs" />
     <Compile Include="GamePlay\ObjectManager.cs" />
+    <Compile Include="GamePlay\Player.cs" />
     <Compile Include="IConvexHull.cs" />
     <Compile Include="LightSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

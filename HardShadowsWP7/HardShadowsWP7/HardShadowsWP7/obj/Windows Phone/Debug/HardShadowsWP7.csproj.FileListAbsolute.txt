@@ -15,9 +15,3 @@ C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsW
 C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\lightSphere.xnb
 C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\FPSFont.xnb
 C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\HardShadowsWP7.csprojResolveAssemblyReference.cache
-C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap
-C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\XapCacheFile.xml
-C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\AppManifest.xaml
-C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml.g
-C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml
-bin\Windows Phone\Debug\
