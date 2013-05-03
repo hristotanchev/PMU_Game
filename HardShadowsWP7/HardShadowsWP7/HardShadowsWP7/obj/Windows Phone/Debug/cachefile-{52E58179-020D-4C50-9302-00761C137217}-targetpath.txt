@@ -1,0 +1,5 @@
+Content\AlphaOne.xnb
+Content\light.xnb
+Content\tile.xnb
+Content\lightSphere.xnb
+Content\FPSFont.xnb

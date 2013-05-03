@@ -1,0 +1,17 @@
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\AlphaOne.xnb
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\light.xnb
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\tile.xnb
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.dll
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.pdb
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\HardShadowsWP7.dll
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\HardShadowsWP7.pdb
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\AppManifest.xaml
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml.g
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml
+bin\Windows Phone\Debug\
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\XapCacheFile.xml
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\lightSphere.xnb
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\FPSFont.xnb
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\HardShadowsWP7.csprojResolveAssemblyReference.cache
