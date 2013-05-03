@@ -153,7 +153,7 @@ namespace HardShadows
             Texture2D playerTexture = Content.Load<Texture2D>("lightSphere");
             Vector2 playerPosition = new Vector2(100, 100);
 
-            player = new Player(playerTexture, playerPosition, Color.CornflowerBlue, 16);
+            player = new Player(playerTexture, playerPosition, Color.CornflowerBlue, 32);
 
             tileTexture = Content.Load<Texture2D>("tile");
             
@@ -251,10 +251,9 @@ namespace HardShadows
 
             //draw player, fully lit
             Vector2 center = new Vector2(player.Texture.Width / 2, player.Texture.Height / 2);
-            float scale = 16 / ((float)player.Texture.Width / 2.0f);
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             //Vector2 origin = new Vector2(playerTexture.Width, playerTexture.Height) / 2.0f;
-            spriteBatch.Draw(player.Texture, player.Position, null, ObjectManager.Instance.Lights[0].Color, 0, center, scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(player.Texture, player.Position, null, player.Color, 0, center, player.Scale, SpriteEffects.None, 0);
             spriteBatch.End();
 
             ++fpsCounter.TotalFrames;

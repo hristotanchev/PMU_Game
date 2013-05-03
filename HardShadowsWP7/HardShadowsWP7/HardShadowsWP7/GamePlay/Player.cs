@@ -23,7 +23,7 @@ namespace HardShadows.GamePlay
         public Vector2 Position
         {
             get { return position; }
-            set { position = value; }
+            set { position = value; boundingBody.Center = position; }
         }
 
         private Color color;
@@ -34,10 +34,15 @@ namespace HardShadows.GamePlay
         }
 
         private float scale;
+        public float Scale
+        {
+            get { return scale; }
+            set { scale = value; }
+        }
         public int Size
         {
             get { return (int)(texture.Width/scale); }
-            set { scale = texture.Width/value; }
+            set { scale = ((float)value/texture.Width); }
         }
 
         private Texture2D texture;
