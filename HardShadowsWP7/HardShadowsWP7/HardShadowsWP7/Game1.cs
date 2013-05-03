@@ -161,10 +161,9 @@ namespace HardShadows
             spriteBatch.End();
 
             //draw player, fully lit
-            Vector2 center = new Vector2(player.Texture.Width / 2, player.Texture.Height / 2);
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             //Vector2 origin = new Vector2(playerTexture.Width, playerTexture.Height) / 2.0f;
-            spriteBatch.Draw(player.Texture, player.Position, null, player.Color, 0, center, player.Scale, SpriteEffects.None, 0);
+            spriteBatch.Draw(player.Texture, player.Position, null, player.Color, 0, player.Origin, player.Scale, SpriteEffects.None, 0);
             spriteBatch.End();
 
             ++fpsCounter.TotalFrames;

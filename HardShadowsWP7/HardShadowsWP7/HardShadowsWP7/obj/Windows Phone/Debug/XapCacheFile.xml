@@ -1,12 +1,12 @@
-﻿<xapCache source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="5/3/2013 6:52:04 PM">
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\Background.png" archivePath="Background.png" lastWriteTime="5/3/2013 5:10:42 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\PhoneGameThumb.png" archivePath="PhoneGameThumb.png" lastWriteTime="5/3/2013 5:10:42 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="5/3/2013 5:10:42 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="5/3/2013 6:10:53 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.dll" archivePath="HardShadowsWP7.dll" lastWriteTime="5/3/2013 6:52:03 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\AlphaOne.xnb" archivePath="Content\AlphaOne.xnb" lastWriteTime="5/3/2013 6:10:46 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\light.xnb" archivePath="Content\light.xnb" lastWriteTime="5/3/2013 6:10:46 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\tile.xnb" archivePath="Content\tile.xnb" lastWriteTime="5/3/2013 6:10:46 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\lightSphere.xnb" archivePath="Content\lightSphere.xnb" lastWriteTime="5/3/2013 6:10:46 PM" />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\FPSFont.xnb" archivePath="Content\FPSFont.xnb" lastWriteTime="5/3/2013 6:10:46 PM" />
+﻿<xapCache source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="03/05/2013 23:25:51">
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\Background.png" archivePath="Background.png" lastWriteTime="09/01/2013 16:22:02" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\PhoneGameThumb.png" archivePath="PhoneGameThumb.png" lastWriteTime="09/01/2013 16:22:02" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="02/05/2013 21:38:03" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="03/05/2013 23:20:25" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.dll" archivePath="HardShadowsWP7.dll" lastWriteTime="03/05/2013 23:25:51" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\AlphaOne.xnb" archivePath="Content\AlphaOne.xnb" lastWriteTime="03/05/2013 23:20:23" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\light.xnb" archivePath="Content\light.xnb" lastWriteTime="03/05/2013 23:20:23" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\tile.xnb" archivePath="Content\tile.xnb" lastWriteTime="03/05/2013 23:20:23" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\lightSphere.xnb" archivePath="Content\lightSphere.xnb" lastWriteTime="03/05/2013 23:20:23" />
+  <file source="C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\FPSFont.xnb" archivePath="Content\FPSFont.xnb" lastWriteTime="03/05/2013 23:20:23" />
 </xapCache>

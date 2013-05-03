@@ -15,3 +15,7 @@ ERROR LIST
 2. you can use : git stash
 3. and pull or push depends from error 
  check history
+
+Conflicts with non-code files (.pdb, .dll) when pulling:
+1. git reset --hard HEAD
+2. git pull

@@ -10,6 +10,13 @@ namespace HardShadows.GamePlay
 {
     class Player
     {
+        private Vector2 origin;
+        public Vector2 Origin
+        {
+            get { return origin; }
+            set { origin = value; }
+        }
+
         private BoundingCircle boundingBody;
         public BoundingCircle BoundingBody
         {
@@ -58,6 +65,7 @@ namespace HardShadows.GamePlay
             this.position = position;
             this.color = color;
             Size = size;
+            origin = new Vector2(texture.Width / 2, texture.Height / 2);
 
             boundingBody = new BoundingCircle(position, size / 3);
         }

@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\AlphaOne.xnb</Output>
-      <Time>2013-05-03T17:10:42.3001156+03:00</Time>
+      <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\AlphaOne.xnb</Output>
+      <Time>2013-01-09T16:22:22.4144013+02:00</Time>
     </Item>
     <Item>
       <Source>light.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\light.xnb</Output>
-      <Time>2013-05-03T17:10:42.3031158+03:00</Time>
+      <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\light.xnb</Output>
+      <Time>2013-01-09T16:22:22.4224022+02:00</Time>
     </Item>
     <Item>
       <Source>tile.JPG</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\tile.xnb</Output>
-      <Time>2013-05-03T17:10:42.307116+03:00</Time>
+      <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\tile.xnb</Output>
+      <Time>2013-01-09T16:22:22.4254014+02:00</Time>
     </Item>
     <Item>
       <Source>lightSphere.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\lightSphere.xnb</Output>
-      <Time>2013-05-03T17:10:42.3031158+03:00</Time>
+      <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\lightSphere.xnb</Output>
+      <Time>2013-05-03T17:19:51.0140873+03:00</Time>
     </Item>
     <Item>
       <Source>FPSFont.spritefont</Source>
@@ -43,8 +43,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\FPSFont.xnb</Output>
-      <Time>2013-05-03T17:10:42.3011157+03:00</Time>
+      <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\FPSFont.xnb</Output>
+      <Time>2013-05-02T20:07:06.5783469+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -53,39 +53,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2011-09-01T17:22:30+03:00</Value>
+        <Value>2011-09-01T16:22:30+03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2011-09-01T17:22:30+03:00</Value>
+        <Value>2011-09-01T16:22:30+03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2011-09-01T17:22:30+03:00</Value>
+        <Value>2011-09-01T16:22:30+03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2011-09-01T17:22:30+03:00</Value>
+        <Value>2011-09-01T16:22:30+03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2011-09-01T17:22:30+03:00</Value>
+        <Value>2011-09-01T16:22:30+03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2011-09-01T17:22:30+03:00</Value>
+        <Value>2011-09-01T16:22:30+03:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-03-06T23:31:50.8713949+02:00</Value>
+        <Value>2013-05-01T14:30:41.1268028+03:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

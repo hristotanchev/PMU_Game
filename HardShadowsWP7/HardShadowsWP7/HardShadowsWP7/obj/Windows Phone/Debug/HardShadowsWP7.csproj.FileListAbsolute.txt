@@ -31,9 +31,9 @@ C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\XapCacheFile.xml
-C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap
-C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\XapCacheFile.xml
-C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\AppManifest.xaml
-C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml.g
-C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\XapCacheFile.xml
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\AppManifest.xaml
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml.g
+C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\WMAppManifest.xml
 bin\Windows Phone\Debug\
