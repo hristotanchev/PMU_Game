@@ -20,17 +20,20 @@ namespace HardShadows.GamePlay
         private BoundingCircle boundingBody;
         public BoundingCircle BoundingBody
         {
-            get
-            {
-                return boundingBody;
-            }
+            get { return boundingBody; }
+        }
+
+        private BoundingCircle triggerBody;
+        public BoundingCircle TriggerBody
+        {
+            get { return triggerBody; }
         }
         
         private Vector2 position = Vector2.Zero;
         public Vector2 Position
         {
             get { return position; }
-            set { position = value; boundingBody.Center = position; }
+            set { position = value; boundingBody.Center = position; triggerBody.Center = position; }
         }
 
         private Color color;
@@ -68,6 +71,7 @@ namespace HardShadows.GamePlay
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
 
             boundingBody = new BoundingCircle(position, size / 3);
+            triggerBody = new BoundingCircle(position, size);
         }
     }
 }

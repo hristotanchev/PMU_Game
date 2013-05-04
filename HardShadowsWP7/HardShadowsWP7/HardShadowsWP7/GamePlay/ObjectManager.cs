@@ -93,18 +93,24 @@ namespace HardShadows.GamePlay
             }
         }
 
-        bool cacheIsDirty;
+        bool lightCacheIsDirty;
+        public bool LightCacheIsDirty
+        {
+            set { lightCacheIsDirty = value; }
+            get { return lightCacheIsDirty; }
+        }
+
         public bool CacheIsDirty
         {
-            set
-            {
-                cacheIsDirty = value;
-            }
+            set { lightCacheIsDirty = value; objectCacheIsDirty = value; }
+            get { return lightCacheIsDirty || objectCacheIsDirty; }
+        }
 
-            get
-            {
-                return cacheIsDirty;
-            }
+        bool objectCacheIsDirty;
+        public bool ObjectCacheIsDirty
+        {
+            set { objectCacheIsDirty = value; }
+            get { return objectCacheIsDirty; }
         }
 
         private ObjectManager()
@@ -113,7 +119,8 @@ namespace HardShadows.GamePlay
             lights = new List<LightSource>();
             staticLights = new List<LightSource>();
 
-            cacheIsDirty = true;
+            lightCacheIsDirty = true;
+            objectCacheIsDirty = true;
         }
 
         public void Clear()

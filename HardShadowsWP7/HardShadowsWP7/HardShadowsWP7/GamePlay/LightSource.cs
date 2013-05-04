@@ -54,13 +54,17 @@ namespace HardShadows
             this.color = color;
             this.range = range;
             this.position = position;
-            this.active = true;
+            this.active = false;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             Vector2 center = new Vector2(lightTexture.Width / 2, lightTexture.Height / 2);
             float scale = range / ((float)lightTexture.Width / 2.0f);
+            if (!active)
+            {
+                scale /= 5;
+            }
             spriteBatch.Draw(lightTexture, position, null, color, 0, center, scale, SpriteEffects.None, 1);
         }
     }

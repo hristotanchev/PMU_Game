@@ -59,6 +59,7 @@ namespace HardShadows
             
             Texture2D lightTexture = Content.Load<Texture2D>("light");
             ObjectManager.Instance.Lights.Add(new LightSource(lightTexture, player.Color, 120, playerPosition));
+            ObjectManager.Instance.Lights[0].Active = true;
 
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
             ObjectManager.Instance.LightMap = new RenderTarget2D(GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight, false,
@@ -108,6 +109,19 @@ namespace HardShadows
             }
             //double time = gameTime.TotalGameTime.TotalSeconds / 4.0f;
             //lights[3].Position = new Vector2(700, 300 + (float)Math.Sin(time) * 200);
+
+            foreach (LightSource ls in ObjectManager.Instance.StaticLights)
+            {
+                if (player.TriggerBody.Intersects(ls.Position))
+                {
+                    if (!ls.Active)
+                    {
+                        ls.Active = true;
+                        ObjectManager.Instance.LightCacheIsDirty = true;
+                    }
+                }
+            }
+
             Vector2 delta_position = player.Position - currenet_position;
 
             foreach (ConvexHull hull in ObjectManager.Instance.Objects)
@@ -141,9 +155,13 @@ namespace HardShadows
         {
 
             // Cache static lights
-            if (ObjectManager.Instance.CacheIsDirty)
+            if (ObjectManager.Instance.LightCacheIsDirty)
             {
                 CacheStaticLightMap();
+            }
+
+            if (ObjectManager.Instance.ObjectCacheIsDirty)
+            {
                 CacheObjectMap();
             }
 
@@ -231,40 +249,39 @@ namespace HardShadows
             {
                 hull.Draw();
             }
+
+            ObjectManager.Instance.ObjectCacheIsDirty = false;
         }
 
         private void DrawShadowsToRenderTarget(List<LightSource> lightsToShade)
         {
             foreach (LightSource light in lightsToShade)
             {
-                if (light.Active)
+                //clear alpha to 1
+                ClearAlphaToOne();
+
+                //draw all shadows
+                //write only to the alpha channel, which sets alpha to 0
+                GraphicsDevice.RasterizerState = RasterizerState.CullNone;
+                GraphicsDevice.BlendState = CustomBlendStates.WriteToAlpha;
+
+                foreach (ConvexHull ch in ObjectManager.Instance.Objects)
                 {
-                    //clear alpha to 1
-                    ClearAlphaToOne();
-
-                    //draw all shadows
-                    //write only to the alpha channel, which sets alpha to 0
-                    GraphicsDevice.RasterizerState = RasterizerState.CullNone;
-                    GraphicsDevice.BlendState = CustomBlendStates.WriteToAlpha;
-
-                    foreach (ConvexHull ch in ObjectManager.Instance.Objects)
-                    {
-                        //draw shadow
-                        ch.DrawShadows(light);
-                    }
-
-                    //draw the light shape
-                    //where Alpha is 0, nothing will be written
-                    spriteBatch.Begin(SpriteSortMode.Immediate, CustomBlendStates.MultiplyWithAlpha);
-                    light.Draw(spriteBatch);
-                    spriteBatch.End();
+                    //draw shadow
+                    ch.DrawShadows(light);
                 }
+
+                //draw the light shape
+                //where Alpha is 0, nothing will be written
+                spriteBatch.Begin(SpriteSortMode.Immediate, CustomBlendStates.MultiplyWithAlpha);
+                light.Draw(spriteBatch);
+                spriteBatch.End();
             }
             //clear alpha, to avoid messing stuff up later
             ClearAlphaToOne();
             GraphicsDevice.SetRenderTarget(null);
 
-            ObjectManager.Instance.CacheIsDirty = false;
+            ObjectManager.Instance.LightCacheIsDirty = false;
         }
 
         private void ClearAlphaToOne()

@@ -32,6 +32,8 @@ namespace HardShadows.GamePlay
 
         public void Build()
         {
+            ObjectManager.Instance.Clear();
+
             Color wallColor = Color.Black;
 
             Vector2[] points = new Vector2[4];
@@ -136,7 +138,7 @@ namespace HardShadows.GamePlay
             ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Orange, 250, new Vector2(40, 200)));
             ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Gold, 200, new Vector2(700, 450)));
             ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.Red, 150, new Vector2(510, 30)));
-            ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.ForestGreen, 300, new Vector2(50, 540)));
+            ObjectManager.Instance.StaticLights.Add(new LightSource(lightTexture, Color.ForestGreen, 300, new Vector2(100, 440)));
 
             ObjectManager.Instance.CacheIsDirty = true;
 
