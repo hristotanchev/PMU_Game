@@ -93,7 +93,7 @@ namespace HardShadows.Engine
             float deltaX = circleDistance.X - rectSize.X / 2;
             float deltaY = circleDistance.Y - rectSize.Y / 2;
 
-            float cornerDistanceSquared = deltaX * deltaX + deltaY + deltaY;
+            float cornerDistanceSquared = deltaX * deltaX + deltaY * deltaY;
 
             return cornerDistanceSquared <= radius * radius;
         }
