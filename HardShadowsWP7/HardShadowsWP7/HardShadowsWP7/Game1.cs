@@ -22,8 +22,6 @@ namespace HardShadows
        
         Texture2D alphaClearTexture;
 
-        Player player;
-
         FPSCounter fpsCounter;
 
         Level level;
@@ -51,16 +49,7 @@ namespace HardShadows
             level = new Level(this);
 
             level.Build();
-
-            Texture2D playerTexture = Content.Load<Texture2D>("lightSphere");
-            Vector2 playerPosition = new Vector2(100, 100);
-
-            player = new Player(playerTexture, playerPosition, Color.CornflowerBlue, 32);
             
-            Texture2D lightTexture = Content.Load<Texture2D>("light");
-            ObjectManager.Instance.Lights.Add(new LightSource(lightTexture, player.Color, 120, playerPosition));
-            ObjectManager.Instance.Lights[0].Active = true;
-
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
             ObjectManager.Instance.LightMap = new RenderTarget2D(GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight, false,
                                    pp.BackBufferFormat, pp.DepthStencilFormat, pp.MultiSampleCount,
@@ -97,14 +86,14 @@ namespace HardShadows
 
             fpsCounter.Update(gameTime);
 
-            Vector2 currenet_position = player.Position;
+            Vector2 currenet_position = ObjectManager.Instance.Player.Position;
 
             TouchCollection touches = TouchPanel.GetState();
             if (touches.Count > 0)
             {
                 if (touches[0].State == TouchLocationState.Moved || touches[0].State == TouchLocationState.Pressed)
                 {
-                    player.Position = touches[0].Position;
+                    ObjectManager.Instance.Player.Position = touches[0].Position;
                 }
             }
             //double time = gameTime.TotalGameTime.TotalSeconds / 4.0f;
@@ -112,7 +101,7 @@ namespace HardShadows
 
             foreach (LightSource ls in ObjectManager.Instance.StaticLights)
             {
-                if (player.TriggerBody.Intersects(ls.Position))
+                if (ObjectManager.Instance.Player.TriggerBody.Intersects(ls.Position))
                 {
                     if (!ls.Active)
                     {
@@ -122,28 +111,28 @@ namespace HardShadows
                 }
             }
 
-            Vector2 delta_position = player.Position - currenet_position;
+            Vector2 delta_position = ObjectManager.Instance.Player.Position - currenet_position;
 
             foreach (ConvexHull hull in ObjectManager.Instance.Objects)
             {
-                if (hull.Intersects(player.BoundingBody))
+                if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
                 {
                     Vector2 delta_x = new Vector2(delta_position.X, 0);
-                    player.Position = currenet_position + delta_x;
-                    if (hull.Intersects(player.BoundingBody))
+                    ObjectManager.Instance.Player.Position = currenet_position + delta_x;
+                    if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
                     {
                         Vector2 delta_y = new Vector2(0, delta_position.Y);
-                        player.Position = currenet_position + delta_y;
-                        if (hull.Intersects(player.BoundingBody))
+                        ObjectManager.Instance.Player.Position = currenet_position + delta_y;
+                        if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
                         {
-                            player.Position = currenet_position;
+                            ObjectManager.Instance.Player.Position = currenet_position;
                             break;
                         }
                     }
                 }
             }
 
-            ObjectManager.Instance.Lights[0].Position = player.Position;
+            ObjectManager.Instance.Lights[0].Position = ObjectManager.Instance.Player.Position;
             base.Update(gameTime);
         }
 
@@ -181,6 +170,7 @@ namespace HardShadows
             //draw player, fully lit
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             //Vector2 origin = new Vector2(playerTexture.Width, playerTexture.Height) / 2.0f;
+            Player player = ObjectManager.Instance.Player;
             spriteBatch.Draw(player.Texture, player.Position, null, player.Color, 0, player.Origin, player.Scale, SpriteEffects.None, 0);
             spriteBatch.End();
 

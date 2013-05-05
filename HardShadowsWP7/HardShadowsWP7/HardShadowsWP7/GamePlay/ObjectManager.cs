@@ -113,11 +113,31 @@ namespace HardShadows.GamePlay
             get { return objectCacheIsDirty; }
         }
 
+        Player player;
+        public Player Player
+        {
+            get { return player; }
+            set { player = value; }
+        }
+
+        List<Color> colors;
+        public List<Color> Colors
+        {
+            get { return colors; }
+        }
+
         private ObjectManager()
         {
             objects = new List<ConvexHull>();
             lights = new List<LightSource>();
             staticLights = new List<LightSource>();
+            
+            colors = new List<Color>();
+            colors.Add(Color.CornflowerBlue);
+            colors.Add(Color.Orange);
+            colors.Add(Color.Gold);
+            colors.Add(Color.Red);
+            colors.Add(Color.ForestGreen);
 
             lightCacheIsDirty = true;
             objectCacheIsDirty = true;
