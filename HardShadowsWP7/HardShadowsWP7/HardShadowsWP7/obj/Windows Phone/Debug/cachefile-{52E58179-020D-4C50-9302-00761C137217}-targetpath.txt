@@ -4,3 +4,4 @@ Content\tile.xnb
 Content\lightSphere.xnb
 Content\FPSFont.xnb
 Content\Level1.txt
+Content\Level2.txt

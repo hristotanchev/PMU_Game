@@ -44,7 +44,7 @@ namespace HardShadows.GamePlay
             lightTexture = game.Content.Load<Texture2D>("light");
             Texture2D playerTexture = game.Content.Load<Texture2D>("lightSphere");
 
-            using (StreamReader sr = new StreamReader(TitleContainer.OpenStream("Content/Level1.txt")))
+            using (StreamReader sr = new StreamReader(TitleContainer.OpenStream("Content/Level2.txt")))
             {
                 string line;
 
@@ -74,9 +74,9 @@ namespace HardShadows.GamePlay
                         Vector2[] points = new Vector2[4];
 
                         points[0] = new Vector2(0, 0);
-                        points[1] = new Vector2(0, width);
-                        points[2] = new Vector2(height, width);
-                        points[3] = new Vector2(height, 0);
+                        points[1] = new Vector2(0, height);
+                        points[2] = new Vector2(width, height);
+                        points[3] = new Vector2(width, 0);
 
                         ObjectManager.Instance.Objects.Add(new ConvexHull(game, points, wallColor, new Vector2(x, y)));
                     }

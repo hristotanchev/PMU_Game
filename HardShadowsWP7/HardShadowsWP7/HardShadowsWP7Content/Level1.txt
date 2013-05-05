@@ -1,9 +1,9 @@
 // format for player x y size light_range color_index
 player 100 100 32 120 0
 // format for rect x y width height
-rect 0 140 20 580
-rect 580 140 140 20
-rect 580 320 140 20
+rect 0 140 580 20
+rect 580 140 20 140
+rect 580 320 20 140
 rect 640 140 20 20
 rect 640 240 20 20
 rect 640 340 20 20
@@ -12,9 +12,9 @@ rect 720 140 20 20
 rect 720 240 20 20
 rect 720 340 20 20
 rect 720 440 20 20
-rect 580 460 80 20
-rect 160 280 40 60
-rect 360 280 40 60
+rect 580 460 20 80
+rect 160 280 60 40
+rect 360 280 60 40
 // drect is a defined rect all the points are defined (avoid)
 drect 460 80 0 -20 0 20
 drect 560 80 0 -20 0 20
