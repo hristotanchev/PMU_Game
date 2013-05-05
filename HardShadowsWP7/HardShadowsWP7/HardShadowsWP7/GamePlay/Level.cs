@@ -30,9 +30,12 @@ namespace HardShadows.GamePlay
         Color wallColor;
         Texture2D lightTexture;
 
-        public Level(Game game)
+        string levelFileName;
+
+        public Level(Game game, string fileName)
         {
             this.game = game;
+            levelFileName = fileName;
         }
 
         public void Build()
@@ -44,7 +47,7 @@ namespace HardShadows.GamePlay
             lightTexture = game.Content.Load<Texture2D>("light");
             Texture2D playerTexture = game.Content.Load<Texture2D>("lightSphere");
 
-            using (StreamReader sr = new StreamReader(TitleContainer.OpenStream("Content/Level2.txt")))
+            using (StreamReader sr = new StreamReader(TitleContainer.OpenStream("Content/" + levelFileName + ".txt")))
             {
                 string line;
 

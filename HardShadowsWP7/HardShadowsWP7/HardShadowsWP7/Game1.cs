@@ -46,7 +46,7 @@ namespace HardShadows
 
             ConvexHull.InitializeStaticMembers(GraphicsDevice);
 
-            level = new Level(this);
+            level = new Level(this, "Level1");
 
             level.Build();
             
