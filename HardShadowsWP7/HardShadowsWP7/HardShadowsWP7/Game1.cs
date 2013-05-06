@@ -19,12 +19,8 @@ namespace HardShadows
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-       
-        Texture2D alphaClearTexture;
 
         FPSCounter fpsCounter;
-
-        Level level;
 
         public Game1()
         {
@@ -46,9 +42,9 @@ namespace HardShadows
 
             ConvexHull.InitializeStaticMembers(GraphicsDevice);
 
-            level = new Level(this, "Level1");
-
-            level.Build();
+            LevelManager.Instance.Init(this, spriteBatch);
+            LevelManager.Instance.SwitchLevel(1);
+            //LevelManager.Instance.Levels[levelIndex].Build();
             
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
             ObjectManager.Instance.LightMap = new RenderTarget2D(GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight, false,
@@ -60,8 +56,6 @@ namespace HardShadows
             ObjectManager.Instance.ObjectCacheMap = new RenderTarget2D(GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight, false,
                                   pp.BackBufferFormat, pp.DepthStencilFormat, pp.MultiSampleCount,
                                   RenderTargetUsage.DiscardContents);
-
-            alphaClearTexture = Content.Load<Texture2D>("AlphaOne");
 
             ObjectManager.Instance.CacheIsDirty = true;
 
@@ -112,6 +106,7 @@ namespace HardShadows
             }
 
             Vector2 delta_position = ObjectManager.Instance.Player.Position - currenet_position;
+            delta_position.Normalize();
 
             foreach (ConvexHull hull in ObjectManager.Instance.Objects)
             {
@@ -142,31 +137,7 @@ namespace HardShadows
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
-            // Cache static lights
-            if (ObjectManager.Instance.LightCacheIsDirty)
-            {
-                CacheStaticLightMap();
-            }
-
-            if (ObjectManager.Instance.ObjectCacheIsDirty)
-            {
-                CacheObjectMap();
-            }
-
-            //build lightmap
-            DrawLightmap();
-
-            graphics.GraphicsDevice.Clear(Color.White);
-
-            //draw objects
-            DrawObjects();
-
-            //multiply scene with lightmap
-            spriteBatch.Begin(SpriteSortMode.Immediate, CustomBlendStates.Multiplicative);
-            spriteBatch.Draw(ObjectManager.Instance.LightMap, Vector2.Zero, Color.White);
-            spriteBatch.End();
-
+            LevelManager.Instance.Draw();
             //draw player, fully lit
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             //Vector2 origin = new Vector2(playerTexture.Width, playerTexture.Height) / 2.0f;
@@ -183,102 +154,6 @@ namespace HardShadows
             base.Draw(gameTime);
         }
 
-        private void DrawObjects()
-        {
-
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
-            spriteBatch.Draw(ObjectManager.Instance.ObjectCacheMap, Vector2.Zero, Color.White);
-            spriteBatch.End();
-        }
-
-        private void DrawGround()
-        {
-            //draw the tile texture tiles across the screen
-            Rectangle source = new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height);
-
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.Opaque);
-            GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
-            spriteBatch.Draw(level.TileTexture, Vector2.Zero, source, Color.White, 0, Vector2.Zero, 1.0f, SpriteEffects.None, 1.0f);
-            spriteBatch.End();
-        }
-
-        private void DrawLightmap()
-        {
-            GraphicsDevice.SetRenderTarget(ObjectManager.Instance.LightMap);
-
-            //clear to some small ambient light
-            GraphicsDevice.Clear(level.AmbientColor);
-
-            // Draw the cached lightmap to the full lightmap
-            spriteBatch.Begin(SpriteSortMode.Immediate, CustomBlendStates.MultiplyWithAlpha);
-            spriteBatch.Draw(ObjectManager.Instance.LightCache, Vector2.Zero, Color.White);
-            spriteBatch.End();
-
-            DrawShadowsToRenderTarget(ObjectManager.Instance.Lights);
-        }
-
-        private void CacheStaticLightMap()
-        {
-            GraphicsDevice.SetRenderTarget(ObjectManager.Instance.LightCache);
-
-            //clear to some small ambient light
-            GraphicsDevice.Clear(level.AmbientColor);
-
-
-            DrawShadowsToRenderTarget(ObjectManager.Instance.StaticLights);
-        }
-
-        private void CacheObjectMap()
-        {
-            GraphicsDevice.SetRenderTarget(ObjectManager.Instance.ObjectCacheMap);
-
-            // Draw the ground to the cache
-            DrawGround();
-
-            foreach (ConvexHull hull in ObjectManager.Instance.Objects)
-            {
-                hull.Draw();
-            }
-
-            ObjectManager.Instance.ObjectCacheIsDirty = false;
-        }
-
-        private void DrawShadowsToRenderTarget(List<LightSource> lightsToShade)
-        {
-            foreach (LightSource light in lightsToShade)
-            {
-                //clear alpha to 1
-                ClearAlphaToOne();
-
-                //draw all shadows
-                //write only to the alpha channel, which sets alpha to 0
-                GraphicsDevice.RasterizerState = RasterizerState.CullNone;
-                GraphicsDevice.BlendState = CustomBlendStates.WriteToAlpha;
-
-                foreach (ConvexHull ch in ObjectManager.Instance.Objects)
-                {
-                    //draw shadow
-                    ch.DrawShadows(light);
-                }
-
-                //draw the light shape
-                //where Alpha is 0, nothing will be written
-                spriteBatch.Begin(SpriteSortMode.Immediate, CustomBlendStates.MultiplyWithAlpha);
-                light.Draw(spriteBatch);
-                spriteBatch.End();
-            }
-            //clear alpha, to avoid messing stuff up later
-            ClearAlphaToOne();
-            GraphicsDevice.SetRenderTarget(null);
-
-            ObjectManager.Instance.LightCacheIsDirty = false;
-        }
-
-        private void ClearAlphaToOne()
-        {
-            spriteBatch.Begin(SpriteSortMode.Immediate, CustomBlendStates.WriteToAlpha);
-            spriteBatch.Draw(alphaClearTexture, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
-            spriteBatch.End();
-        }
+        
     }
 }
