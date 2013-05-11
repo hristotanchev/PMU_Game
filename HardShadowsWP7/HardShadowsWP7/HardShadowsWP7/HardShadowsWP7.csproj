@@ -71,9 +71,12 @@
     <Compile Include="Engine\BoundingRect.cs" />
     <Compile Include="GamePlay\Level.cs" />
     <Compile Include="GamePlay\LevelManager.cs" />
+    <Compile Include="GamePlay\MenuButton.cs" />
+    <Compile Include="GamePlay\CallbackManager.cs" />
     <Compile Include="GamePlay\ObjectManager.cs" />
     <Compile Include="GamePlay\Player.cs" />
     <Compile Include="GamePlay\LightSource.cs" />
+    <Compile Include="GamePlay\TransitionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\AppManifest.xml">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>

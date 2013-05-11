@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\AlphaOne.xnb</Output>
-      <Time>2013-01-09T16:22:22.4144013+02:00</Time>
+      <Time>2013-05-06T13:42:19+03:00</Time>
     </Item>
     <Item>
       <Source>light.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\light.xnb</Output>
-      <Time>2013-01-09T16:22:22.4224022+02:00</Time>
+      <Time>2013-05-06T13:42:19+03:00</Time>
     </Item>
     <Item>
       <Source>tile.JPG</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\tile.xnb</Output>
-      <Time>2013-01-09T16:22:22.4254014+02:00</Time>
+      <Time>2013-05-06T13:42:19+03:00</Time>
     </Item>
     <Item>
       <Source>lightSphere.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\lightSphere.xnb</Output>
-      <Time>2013-05-03T17:19:51.0140873+03:00</Time>
+      <Time>2013-05-06T13:42:19+03:00</Time>
     </Item>
     <Item>
       <Source>FPSFont.spritefont</Source>
@@ -44,7 +44,7 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\FPSFont.xnb</Output>
-      <Time>2013-05-02T20:07:06.5783469+03:00</Time>
+      <Time>2013-05-06T13:42:19+03:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

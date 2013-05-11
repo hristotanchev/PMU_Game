@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using HardShadows.GamePlay;
 
 namespace HardShadows
 {
@@ -40,32 +41,89 @@ namespace HardShadows
             set { lightTexture = value; }
         }
 
-        private bool active;
-
-        public bool Active
+        public void SwitchState()
         {
-            get { return active; }
-            set { active = value; }
+            if (currentState != LightSourceState.CHANGING)
+            {
+                targetState = currentState == LightSourceState.ON ? LightSourceState.OFF : LightSourceState.ON;
+                currentState = LightSourceState.CHANGING;
+            }
         }
+
+        private float offRange;
+        private float onRange;
+        private int timeStep;
+        private double timeElapsed;
+        private float rangeStep;
+
+        public void ForceOn()
+        {
+            range = onRange;
+        }
+
+        enum LightSourceState
+        {
+            ON = 0,
+            OFF,
+            CHANGING
+        }
+
+        LightSourceState currentState;
+        LightSourceState targetState;
 
         public LightSource(Texture2D texture, Color color, float range, Vector2 position)
         {
             lightTexture = texture;
             this.color = color;
-            this.range = range;
+            offRange = 30;
+            onRange = range;
+            this.range = offRange;
             this.position = position;
-            this.active = false;
+            currentState = LightSourceState.OFF;
+            timeElapsed = 0;
+            timeStep = 40;
+            rangeStep = 30;
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             Vector2 center = new Vector2(lightTexture.Width / 2, lightTexture.Height / 2);
             float scale = range / ((float)lightTexture.Width / 2.0f);
-            if (!active)
-            {
-                scale /= 5;
-            }
             spriteBatch.Draw(lightTexture, position, null, color, 0, center, scale, SpriteEffects.None, 1);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            if (currentState == LightSourceState.CHANGING)
+            {
+                timeElapsed += gameTime.ElapsedGameTime.TotalMilliseconds;
+
+                if (timeElapsed > timeStep)
+                {
+                    timeElapsed = 0;
+                    if (targetState == LightSourceState.OFF)
+                    {
+                        range -= rangeStep;
+                    }
+                    else
+                    {
+                        range += rangeStep;
+                    }
+
+                    if (range < offRange)
+                    {
+                        range = offRange;
+                        currentState = LightSourceState.OFF;
+                    }
+                    else if (range > onRange)
+                    {
+                        range = onRange;
+                        currentState = LightSourceState.ON;
+                    }
+                }
+
+                ObjectManager.Instance.LightCacheIsDirty = true;
+            }
         }
     }
 }

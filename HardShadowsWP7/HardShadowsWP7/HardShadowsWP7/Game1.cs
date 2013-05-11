@@ -35,6 +35,8 @@ namespace HardShadows
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
+
+        private MenuButton button;
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -43,7 +45,7 @@ namespace HardShadows
             ConvexHull.InitializeStaticMembers(GraphicsDevice);
 
             LevelManager.Instance.Init(this, spriteBatch);
-            LevelManager.Instance.SwitchLevel(1);
+            LevelManager.Instance.SwitchLevel(0);
             //LevelManager.Instance.Levels[levelIndex].Build();
             
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
@@ -56,6 +58,10 @@ namespace HardShadows
             ObjectManager.Instance.ObjectCacheMap = new RenderTarget2D(GraphicsDevice, pp.BackBufferWidth, pp.BackBufferHeight, false,
                                   pp.BackBufferFormat, pp.DepthStencilFormat, pp.MultiSampleCount,
                                   RenderTargetUsage.DiscardContents);
+
+            button = new MenuButton();
+            button.boundingBody = new BoundingRect(20, 20, 40, 40);
+            button.Click += CallbackManager.Instance.LevelClick;
 
             ObjectManager.Instance.CacheIsDirty = true;
 
@@ -85,9 +91,37 @@ namespace HardShadows
             TouchCollection touches = TouchPanel.GetState();
             if (touches.Count > 0)
             {
-                if (touches[0].State == TouchLocationState.Moved || touches[0].State == TouchLocationState.Pressed)
+                if (button.boundingBody.Intersects(touches[0].Position))
+                {
+                    button.Click(1);
+                }
+
+                if ((touches[0].State == TouchLocationState.Moved || touches[0].State == TouchLocationState.Pressed) && TransitionManager.Instance.CurrentState != TransitionManager.TransitionState.ACTIVE)
                 {
                     ObjectManager.Instance.Player.Position = touches[0].Position;
+                    Vector2 delta_position = ObjectManager.Instance.Player.Position - currenet_position;
+                    delta_position.Normalize();
+
+                    foreach (ConvexHull hull in ObjectManager.Instance.Objects)
+                    {
+                        if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
+                        {
+                            Vector2 delta_x = new Vector2(delta_position.X, 0);
+                            ObjectManager.Instance.Player.Position = currenet_position + delta_x;
+                            if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
+                            {
+                                Vector2 delta_y = new Vector2(0, delta_position.Y);
+                                ObjectManager.Instance.Player.Position = currenet_position + delta_y;
+                                if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
+                                {
+                                    ObjectManager.Instance.Player.Position = currenet_position;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    ObjectManager.Instance.Lights[0].Position = ObjectManager.Instance.Player.Position;
                 }
             }
             //double time = gameTime.TotalGameTime.TotalSeconds / 4.0f;
@@ -97,37 +131,22 @@ namespace HardShadows
             {
                 if (ObjectManager.Instance.Player.TriggerBody.Intersects(ls.Position))
                 {
-                    if (!ls.Active)
+                    /*if (!ls.Active)
                     {
                         ls.Active = true;
                         ObjectManager.Instance.LightCacheIsDirty = true;
-                    }
+                    }*/
+                    ls.SwitchState();
                 }
             }
 
-            Vector2 delta_position = ObjectManager.Instance.Player.Position - currenet_position;
-            delta_position.Normalize();
+            TransitionManager.Instance.Update(gameTime);
 
-            foreach (ConvexHull hull in ObjectManager.Instance.Objects)
+            foreach (LightSource ls in ObjectManager.Instance.StaticLights)
             {
-                if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
-                {
-                    Vector2 delta_x = new Vector2(delta_position.X, 0);
-                    ObjectManager.Instance.Player.Position = currenet_position + delta_x;
-                    if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
-                    {
-                        Vector2 delta_y = new Vector2(0, delta_position.Y);
-                        ObjectManager.Instance.Player.Position = currenet_position + delta_y;
-                        if (hull.Intersects(ObjectManager.Instance.Player.BoundingBody))
-                        {
-                            ObjectManager.Instance.Player.Position = currenet_position;
-                            break;
-                        }
-                    }
-                }
+                ls.Update(gameTime);
             }
 
-            ObjectManager.Instance.Lights[0].Position = ObjectManager.Instance.Player.Position;
             base.Update(gameTime);
         }
 
@@ -145,6 +164,8 @@ namespace HardShadows
             spriteBatch.Draw(player.Texture, player.Position, null, player.Color, 0, player.Origin, player.Scale, SpriteEffects.None, 0);
             spriteBatch.End();
 
+            TransitionManager.Instance.Draw(spriteBatch);
+
             ++fpsCounter.TotalFrames;
             spriteBatch.Begin();
             spriteBatch.DrawString(fpsCounter.Font, string.Format("{0}", fpsCounter.FPS),
@@ -152,8 +173,6 @@ namespace HardShadows
             spriteBatch.End();
 
             base.Draw(gameTime);
-        }
-
-        
+        } 
     }
 }

@@ -1,2 +1,3 @@
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7Content\obj\Windows Phone\Debug\HardShadowsWP7Content.contentprojResolveAssemblyReference.cache
 C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7Content\obj\Windows Phone\Debug\HardShadowsWP7Content.contentprojResolveAssemblyReference.cache
+C:\Users\anton.georgiev.GAMELOFT\Desktop\PMU_Game-master\PMU_Game-master\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7Content\obj\Windows Phone\Debug\HardShadowsWP7Content.contentprojResolveAssemblyReference.cache

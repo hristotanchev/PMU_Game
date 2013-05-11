@@ -64,7 +64,7 @@ namespace HardShadows.GamePlay
 
                         ObjectManager.Instance.Player = new Player(playerTexture, new Vector2(x, y), ObjectManager.Instance.Colors[colorIndex], size);
                         ObjectManager.Instance.Lights.Add(new LightSource(lightTexture, ObjectManager.Instance.Colors[colorIndex], lightRange, new Vector2(x, y)));
-                        ObjectManager.Instance.Lights[0].Active = true;
+                        ObjectManager.Instance.Lights[0].ForceOn();
                     }
                     else if (line.StartsWith("rect"))
                     {

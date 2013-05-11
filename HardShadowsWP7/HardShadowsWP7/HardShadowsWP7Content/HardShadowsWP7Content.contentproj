@@ -63,14 +63,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Level1.txt">
-      <Name>Level1</Name>
+    <None Include="Level2.txt">
+      <Name>Level2</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Level2.txt">
-      <Name>Level2</Name>
+    <None Include="Level1.txt">
+      <Name>Level1</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

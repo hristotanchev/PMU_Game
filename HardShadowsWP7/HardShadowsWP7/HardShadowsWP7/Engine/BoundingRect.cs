@@ -43,6 +43,18 @@ namespace HardShadows.Engine
             max = Vector2.Zero;
         }
 
+        public BoundingRect(Vector2 min, Vector2 max)
+        {
+            this.min = min;
+            this.max = max;
+        }
+
+        public BoundingRect(int minX, int minY, int maxX, int maxY)
+        {
+            min = new Vector2(minX, minY);
+            max = new Vector2(maxX, maxY);
+        }
+
         public bool Intersects(Vector2 p)
         {
             if (p.X > min.X && p.Y > min.Y && p.X < max.X && p.Y < max.Y)
