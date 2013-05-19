@@ -46,6 +46,25 @@
       <Output>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\FPSFont.xnb</Output>
       <Time>2013-05-03T17:10:42.3011157+03:00</Time>
     </Item>
+    <Item>
+      <Source>redPresent.png</Source>
+      <Name>redPresent</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\redPresent.xnb</Output>
+      <Time>2013-05-19T13:58:10.2052649+03:00</Time>
+    </Item>
+    <Item>
+      <Source>188709__setuniman__thoughts-1a37.mp3</Source>
+      <Name>melody</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\melody.xnb</Output>
+      <Extra>C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\melody.wma</Extra>
+      <Time>2013-05-19T15:55:35.3598709+03:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{52E58179-020D-4C50-9302-00761C137217}</ContentProjectGUID>

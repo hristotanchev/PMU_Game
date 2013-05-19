@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using Microsoft.Xna.Framework.Media;
 using HardShadows.GamePlay;
 using HardShadows.Engine;
 
@@ -20,9 +21,13 @@ namespace HardShadows
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Vector2 directionToMove;
+        Texture2D presentTexture;
         List<Vector2> movingPath = new List<Vector2>();
         float differenceX;
         float differenceY;
+        Present present;
+        bool isGameOver = false;
+        bool isLevelCompleted = false;
     
 
         FPSCounter fpsCounter;
@@ -47,7 +52,6 @@ namespace HardShadows
         /// </summary>
 
         private MenuButton button;
-        private DPadControllerButtons dRight, dLeft, dUp, dDown, dNone;
 
         protected override void LoadContent()
         {
@@ -78,6 +82,8 @@ namespace HardShadows
             ObjectManager.Instance.CacheIsDirty = true;
 
             fpsCounter = new FPSCounter(Content.Load<SpriteFont>("FPSFont"));
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(LevelManager.Instance.launch); MediaPlayer.Play(LevelManager.Instance.launch);
         }
 
         /// <summary>
@@ -107,6 +113,7 @@ namespace HardShadows
                 if (button.boundingBody.Intersects(touches[0].Position))
                 {
                     button.Click(1);
+                    fpsCounter.elapsedTime = 70000;
                 }
 
                 if (touches[0].State == TouchLocationState.Pressed)
@@ -122,15 +129,11 @@ namespace HardShadows
                     Vector2 pos1 = gesture.Position;
                     movingPath.Add(pos1);
                     TimeSpan s = gesture.Timestamp;
-                    //DateTime now = DateTime.Now;
-                    //TimeSpan k = now - s;
-                    //if (gesture.GestureType == GestureType.Hold)
-                    //directionToMove.X += 60;//1000 * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
 
                 int counterLastElement = movingPath.Count - 1;
 
-                    if (movingPath.Count != 0)
+                    if ((movingPath.Count != 0)&&(!isGameOver))
                     {
                         Rectangle Dphat = new Rectangle((int)(_touchLocation.X), (int)(_touchLocation.Y), 110, 110);
                         Rectangle lastTouchRect = new Rectangle((int)(movingPath[counterLastElement].X), (int)(movingPath[counterLastElement].Y), 10, 10);
@@ -167,7 +170,7 @@ namespace HardShadows
                                         if (isInCollision())
                                             directionToMove = player.Origin;
                                         else
-                                            directionToMove.X -= 13;
+                                            directionToMove.X -= 1000 * (float)gameTime.ElapsedGameTime.TotalSeconds; 
                                 }
                             }
                             else if (Math.Abs(differenceX) < Math.Abs(differenceY))
@@ -181,7 +184,7 @@ namespace HardShadows
                                         if (isInCollision())
                                             directionToMove = player.Origin;
                                         else
-                                            directionToMove.Y += 11;
+                                            directionToMove.Y += 1000 * (float)gameTime.ElapsedGameTime.TotalSeconds; 
                                 }
                                 else if (differenceY < 0)
                                 {
@@ -190,7 +193,7 @@ namespace HardShadows
                                         if (isInCollision())
                                             directionToMove = player.Origin;
                                         else
-                                            directionToMove.Y -= 13;
+                                            directionToMove.Y -= 1000 * (float)gameTime.ElapsedGameTime.TotalSeconds; 
                                 }
                             }
                         }
@@ -211,6 +214,7 @@ namespace HardShadows
                         showDPat = true;
                     }
                 }
+            int activatedLights = 0;
             foreach (LightSource ls in ObjectManager.Instance.StaticLights)
             {
                 if (ObjectManager.Instance.Player.TriggerBody.Intersects(ls.Position))
@@ -221,8 +225,24 @@ namespace HardShadows
                         ObjectManager.Instance.LightCacheIsDirty = true;
                     }*/
                     ls.SwitchState();
+
+                }
+                else
+                {
+                    if (ls.currentState == LightSource.LightSourceState.ON)
+                        activatedLights++;
                 }
             }
+
+            if (activatedLights == ObjectManager.Instance.StaticLights.Count)
+            {
+                isLevelCompleted = true;
+                fpsCounter.elapsedTime = 0;
+            }
+
+            if (fpsCounter.FPS == 0)
+                isGameOver = true;
+                //this.Exit();
 
             TransitionManager.Instance.Update(gameTime);
 
@@ -241,21 +261,34 @@ namespace HardShadows
         protected override void Draw(GameTime gameTime)
         {
             LevelManager.Instance.Draw();
-            //draw player, fully lit
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
-            //Vector2 origin = new Vector2(playerTexture.Width, playerTexture.Height) / 2.0f;
             Player player = ObjectManager.Instance.Player;
-            //directionToMove = player.Origin;
             spriteBatch.Draw(player.Texture, directionToMove, null, player.Color, 0, player.Origin, player.Scale, SpriteEffects.None, 0);
             spriteBatch.End();
 
             TransitionManager.Instance.Draw(spriteBatch);
 
-            ++fpsCounter.TotalFrames;
+           // ++fpsCounter.TotalFrames;
             spriteBatch.Begin();
             spriteBatch.DrawString(fpsCounter.Font, string.Format("{0}", fpsCounter.FPS),
                 new Vector2(10.0f, 20.0f), Color.White);
             spriteBatch.End();
+
+            if (isGameOver == true)
+            {
+                spriteBatch.Begin();
+                spriteBatch.DrawString(fpsCounter.Font, "Game over",
+                    new Vector2(graphics.PreferredBackBufferWidth / 2 - 100, graphics.PreferredBackBufferHeight / 2), Color.White);
+                spriteBatch.End();
+            }
+
+            if (isLevelCompleted == true)
+            {
+                spriteBatch.Begin();
+                spriteBatch.DrawString(fpsCounter.Font, "Level is Completed",
+                    new Vector2(graphics.PreferredBackBufferWidth / 2 -120, graphics.PreferredBackBufferHeight / 2), Color.White);
+                spriteBatch.End();
+            }
 
             spriteBatch.Begin();
             spriteBatch.Draw(player.Texture, _touchLocation, Color.White);
@@ -291,6 +324,13 @@ namespace HardShadows
                     }
                 }
             }
+
+            if (LevelManager.Instance.presentRectangle.Intersects(new Rectangle((int)directionToMove.X, (int)directionToMove.Y, 20, 20)))
+            {
+               fpsCounter.elapsedTime += 60000;
+               LevelManager.Instance.presentRectangle = new Rectangle();
+            }
+
             return inColision;  
         }
     }

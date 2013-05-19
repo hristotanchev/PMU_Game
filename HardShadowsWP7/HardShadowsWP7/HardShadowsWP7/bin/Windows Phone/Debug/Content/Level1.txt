@@ -46,6 +46,6 @@ rect 480 280 60 40
 //ngon 500 300 8 20
 // light x y range color_index
 light 40 200 250 1
-light 700 450 200 2
+light 690 300 200 2
 light 510 30 150 3
 light 100 440 300 4

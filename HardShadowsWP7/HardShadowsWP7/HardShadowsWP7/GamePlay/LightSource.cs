@@ -61,14 +61,14 @@ namespace HardShadows
             range = onRange;
         }
 
-        enum LightSourceState
+       public enum LightSourceState
         {
             ON = 0,
             OFF,
             CHANGING
         }
 
-        LightSourceState currentState;
+      public  LightSourceState currentState;
         LightSourceState targetState;
 
         public LightSource(Texture2D texture, Color color, float range, Vector2 position)

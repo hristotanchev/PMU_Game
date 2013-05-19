@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace HardShadows.GamePlay
 {
@@ -38,6 +40,9 @@ namespace HardShadows.GamePlay
         private Game game;
         private SpriteBatch spriteBatch;
         private Texture2D alphaClearTexture;
+        private Texture2D presentTexture;
+        public Rectangle presentRectangle = new Rectangle(700, 30, 50, 50);
+        public Song launch;
 
         private LevelManager()
         {
@@ -52,6 +57,8 @@ namespace HardShadows.GamePlay
             this.spriteBatch = spriteBatch;
             levelIndex = 0;
             alphaClearTexture = game.Content.Load<Texture2D>("AlphaOne");
+            presentTexture = game.Content.Load<Texture2D>("redPresent");
+            launch = game.Content.Load<Song>("melody");
         }
 
         public void SwitchLevel(int index)
@@ -84,6 +91,11 @@ namespace HardShadows.GamePlay
             //multiply scene with lightmap
             spriteBatch.Begin(SpriteSortMode.Immediate, CustomBlendStates.Multiplicative);
             spriteBatch.Draw(ObjectManager.Instance.LightMap, Vector2.Zero, Color.White);
+            spriteBatch.End();
+
+            //draw present 
+            spriteBatch.Begin();
+            spriteBatch.Draw(presentTexture, presentRectangle, Color.Red);
             spriteBatch.End();
         }
 

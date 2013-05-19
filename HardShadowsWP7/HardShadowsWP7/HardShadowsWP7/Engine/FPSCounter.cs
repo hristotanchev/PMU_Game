@@ -22,7 +22,7 @@ namespace HardShadows.Engine
             set { totalFrames = value; }
         }
 
-        private float elapsedTime;
+        public float elapsedTime;
         private int fps;
 
         public int FPS
@@ -34,21 +34,16 @@ namespace HardShadows.Engine
         {
             font = FPSFont;
             totalFrames = 0;
-            elapsedTime = 0;
-            fps = 0;
+            elapsedTime = 70000;
+            fps = 40;
         }
 
         public void Update(GameTime gameTime)
         {
-            elapsedTime += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            elapsedTime -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
-            // 1 Second has passed
-            if (elapsedTime >= 1000.0f)
-            {
-                fps = totalFrames;
-                totalFrames = 0;
-                elapsedTime = 0;
-            }
+            if (elapsedTime >= 0)
+                fps = (int)elapsedTime/1000;
         }
     }
 }
