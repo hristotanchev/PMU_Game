@@ -70,7 +70,7 @@ namespace HardShadows.GamePlay
             Size = size;
             origin = new Vector2(texture.Width / 2, texture.Height / 2);
 
-            boundingBody = new BoundingCircle(position, size / 3);
+            boundingBody = new BoundingCircle(position, size);
             triggerBody = new BoundingCircle(position, size);
         }
     }

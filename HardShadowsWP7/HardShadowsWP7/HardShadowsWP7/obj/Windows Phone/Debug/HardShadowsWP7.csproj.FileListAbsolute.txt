@@ -51,3 +51,5 @@ C:\Users\anton.georgiev.GAMELOFT\Desktop\PMU_Game-master\PMU_Game-master\HardSha
 C:\Users\anton.georgiev.GAMELOFT\Desktop\PMU_Game-master\PMU_Game-master\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap
 C:\Users\anton.georgiev.GAMELOFT\Desktop\PMU_Game-master\PMU_Game-master\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\XapCacheFile.xml
 C:\Users\Anton\Desktop\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\HardShadowsWP7.csprojResolveAssemblyReference.cache
+C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level2.txt
+C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level1.txt

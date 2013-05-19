@@ -16,20 +16,34 @@ rect 580 460 20 80
 rect 160 280 60 40
 rect 360 280 60 40
 // drect is a defined rect all the points are defined (avoid)
-drect 460 80 0 -20 0 20
-drect 560 80 0 -20 0 20
-drect 160 80 0 -20 0 20
+//drect 460 80 0 -20 0 20
+//drect 560 80 0 -20 0 20
+//drect 160 80 0 -20 0 20
+rect 460 80 60 40
+rect 560 80 60 40
+rect 160 20 60 40
+rect 260 20 60 40
 // ngon x y num_sides size
-ngon 140 220 8 20
-ngon 240 220 8 20
-ngon 340 220 8 20
-ngon 440 220 8 20
-ngon 140 380 8 20
-ngon 240 380 8 20
-ngon 340 380 8 20
-ngon 440 380 8 20
-ngon 80 300 8 20
-ngon 500 300 8 20
+rect 140 220 60 20
+rect 240 220 60 20
+rect 340 220 60 20
+rect 440 220 60 20
+//ngon 140 220 8 20
+//ngon 240 220 8 20
+//ngon 340 220 8 20
+//ngon 440 220 8 20
+rect 140 360 60 20
+rect 240 360 60 20
+rect 340 360 60 20
+rect 440 360 60 20
+//ngon 140 380 8 20
+//ngon 240 380 8 20
+//ngon 340 380 8 20
+//ngon 440 380 8 20
+rect 50 280 60 40
+rect 480 280 60 40
+//ngon 80 300 8 20
+//ngon 500 300 8 20
 // light x y range color_index
 light 40 200 250 1
 light 700 450 200 2

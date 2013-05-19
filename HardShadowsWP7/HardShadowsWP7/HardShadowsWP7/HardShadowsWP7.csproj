@@ -69,6 +69,7 @@
     <Compile Include="CustomBlendStates.cs" />
     <Compile Include="Engine\BoundingCircle.cs" />
     <Compile Include="Engine\BoundingRect.cs" />
+    <Compile Include="GamePlay\DPadControllerButtons.cs" />
     <Compile Include="GamePlay\Level.cs" />
     <Compile Include="GamePlay\LevelManager.cs" />
     <Compile Include="GamePlay\MenuButton.cs" />
