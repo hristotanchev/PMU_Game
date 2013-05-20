@@ -21,13 +21,15 @@ namespace HardShadows
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Vector2 directionToMove;
-        Texture2D presentTexture;
         List<Vector2> movingPath = new List<Vector2>();
         float differenceX;
         float differenceY;
-        Present present;
         bool isGameOver = false;
         bool isLevelCompleted = false;
+        bool isInMenu = true;
+        bool isInLevelMenu = false;
+        bool intersectLevelButton = false;
+        int changeLevel = 1;
     
 
         FPSCounter fpsCounter;
@@ -52,6 +54,12 @@ namespace HardShadows
         /// </summary>
 
         private MenuButton button;
+        private MenuButton button1;
+        private MenuButton button2;
+        private MenuButton button3;
+        private MenuButton button4;
+        private MenuButton button5;
+        private MenuButton button6;
 
         protected override void LoadContent()
         {
@@ -78,6 +86,36 @@ namespace HardShadows
             button = new MenuButton();
             button.boundingBody = new BoundingRect(20, 20, 40, 40);
             button.Click += CallbackManager.Instance.LevelClick;
+
+            // start buton
+            button1 = new MenuButton();
+            button1.boundingBody = new BoundingRect(graphics.PreferredBackBufferWidth / 2 - 100, graphics.PreferredBackBufferHeight / 2 - 100, graphics.PreferredBackBufferWidth / 2 , graphics.PreferredBackBufferHeight / 2 - 80);
+            //button1.Click += CallbackManager.Instance.LevelClick;
+            
+            // level buton
+            button2 = new MenuButton();
+            button2.boundingBody = new BoundingRect(graphics.PreferredBackBufferWidth / 2 - 100, graphics.PreferredBackBufferHeight / 2, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 23);
+            //button2.Click += CallbackManager.Instance.LevelClick;
+
+            // exit buton
+            button3 = new MenuButton();
+            button3.boundingBody = new BoundingRect(graphics.PreferredBackBufferWidth / 2 - 90, graphics.PreferredBackBufferHeight / 2 + 90, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 150);
+            //button3.Click += CallbackManager.Instance.LevelClick;
+
+            // level 1
+            button4 = new MenuButton();
+            button4.boundingBody = new BoundingRect(100, graphics.PreferredBackBufferHeight / 2 - 100, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 - 80);
+            //button1.Click += CallbackManager.Instance.LevelClick;
+
+            // level 2
+            button5 = new MenuButton();
+            button5.boundingBody = new BoundingRect(100, graphics.PreferredBackBufferHeight / 2, 190, graphics.PreferredBackBufferHeight / 2 + 23);
+            //button5.Click += CallbackManager.Instance.LevelClick;
+
+            // level 3
+            button6 = new MenuButton();
+            button6.boundingBody = new BoundingRect(90, graphics.PreferredBackBufferHeight / 2 + 90, graphics.PreferredBackBufferWidth / 2, graphics.PreferredBackBufferHeight / 2 + 150);
+            //button6.Click += CallbackManager.Instance.LevelClick;
 
             ObjectManager.Instance.CacheIsDirty = true;
 
@@ -110,12 +148,69 @@ namespace HardShadows
             TouchCollection touches = TouchPanel.GetState();
             if (touches.Count > 0)
             {
-                if (button.boundingBody.Intersects(touches[0].Position))
+                if (isInMenu)
                 {
-                    button.Click(1);
-                    fpsCounter.elapsedTime = 70000;
-                }
+                    if (button1.boundingBody.Intersects(touches[0].Position))
+                    {
+                        button.Click(1);
+                        isInMenu = false;
+                       // isInLevelMenu = false;
+                        
+                        
+                    }
 
+                    if (button2.boundingBody.Intersects(touches[0].Position))
+                    {
+
+                        button.Click(1);
+                        isInMenu = false;
+                        isInLevelMenu = true;
+                        intersectLevelButton = true;
+                    }
+
+                    if (button3.boundingBody.Intersects(touches[0].Position))
+                    {
+                        this.Exit();
+                    }
+                    /*
+                    if (button.boundingBody.Intersects(touches[0].Position))
+                    {
+                        if (isInMenu == true)
+                         {
+                             for (int i = 1; i <= 2; i++)
+                             {
+                                 i = changeLevel;
+                        button.Click(2);
+
+                        fpsCounter.elapsedTime = 70000;
+
+                    }*/
+                }
+                
+                if (isInLevelMenu)
+                {
+                    if (button4.boundingBody.Intersects(touches[0].Position))
+                    {
+                        button.Click(1);
+                      //  isInMenu = false;
+                        isInLevelMenu = false;
+                    }
+
+                    if (button5.boundingBody.Intersects(touches[0].Position))
+                    {
+                        button.Click(2);
+                      //  isInMenu = false;
+                        //if (!intersectLevelButton)
+                            isInLevelMenu = false;
+                    }
+
+                    if (button6.boundingBody.Intersects(touches[0].Position))
+                    {
+                        button.Click(3);
+                       // isInMenu = false;
+                        isInLevelMenu = false;
+                    }
+                }
                 if (touches[0].State == TouchLocationState.Pressed)
                 {
                     showDPat = true;
@@ -241,9 +336,10 @@ namespace HardShadows
             }
 
             if (fpsCounter.FPS == 0)
+            {
                 isGameOver = true;
-                //this.Exit();
-
+            }
+            
             TransitionManager.Instance.Update(gameTime);
 
             foreach (LightSource ls in ObjectManager.Instance.StaticLights)
@@ -260,41 +356,99 @@ namespace HardShadows
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            LevelManager.Instance.Draw();
-            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
-            Player player = ObjectManager.Instance.Player;
-            spriteBatch.Draw(player.Texture, directionToMove, null, player.Color, 0, player.Origin, player.Scale, SpriteEffects.None, 0);
-            spriteBatch.End();
 
-            TransitionManager.Instance.Draw(spriteBatch);
-
-           // ++fpsCounter.TotalFrames;
-            spriteBatch.Begin();
-            spriteBatch.DrawString(fpsCounter.Font, string.Format("{0}", fpsCounter.FPS),
-                new Vector2(10.0f, 20.0f), Color.White);
-            spriteBatch.End();
-
-            if (isGameOver == true)
+            if (isInMenu == true)
             {
+                LevelManager.Instance.Draw();
+                //start button
                 spriteBatch.Begin();
-                spriteBatch.DrawString(fpsCounter.Font, "Game over",
+                spriteBatch.DrawString(fpsCounter.Font, "Start",
+                    new Vector2(graphics.PreferredBackBufferWidth / 2 - 100, graphics.PreferredBackBufferHeight / 2 - 100), Color.White);
+                spriteBatch.End();
+
+                // level buton
+                spriteBatch.Begin();
+                spriteBatch.DrawString(fpsCounter.Font, "Level",
                     new Vector2(graphics.PreferredBackBufferWidth / 2 - 100, graphics.PreferredBackBufferHeight / 2), Color.White);
                 spriteBatch.End();
-            }
 
-            if (isLevelCompleted == true)
-            {
+                //exit button
                 spriteBatch.Begin();
-                spriteBatch.DrawString(fpsCounter.Font, "Level is Completed",
-                    new Vector2(graphics.PreferredBackBufferWidth / 2 -120, graphics.PreferredBackBufferHeight / 2), Color.White);
+                spriteBatch.DrawString(fpsCounter.Font, "Exit",
+                    new Vector2(graphics.PreferredBackBufferWidth / 2 - 90, graphics.PreferredBackBufferHeight / 2 + 100), Color.White);
+                spriteBatch.End();
+
+                TransitionManager.Instance.Draw(spriteBatch);
+            }
+            else if (isInLevelMenu == true)
+            {
+                //isInLevelMenu = true;
+                LevelManager.Instance.Draw();
+
+                //intersectLevelButton = true;
+
+                //level 1
+                spriteBatch.Begin();
+                spriteBatch.DrawString(fpsCounter.Font, "Level 1",
+                    new Vector2(100, graphics.PreferredBackBufferHeight / 2 - 100), Color.White);
+                spriteBatch.End();
+
+                // level 2
+                spriteBatch.Begin();
+                spriteBatch.DrawString(fpsCounter.Font, "Level 2",
+                    new Vector2(100, graphics.PreferredBackBufferHeight / 2), Color.White);
+                spriteBatch.End();
+
+                //level 2
+                spriteBatch.Begin();
+                spriteBatch.DrawString(fpsCounter.Font, "Level 3",
+                    new Vector2(100, graphics.PreferredBackBufferHeight / 2 + 100), Color.White);
+                spriteBatch.End();
+
+                TransitionManager.Instance.Draw(spriteBatch);
+            } else {
+                LevelManager.Instance.Draw();
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+                Player player = ObjectManager.Instance.Player;
+                spriteBatch.Draw(player.Texture, directionToMove, null, player.Color, 0, player.Origin, player.Scale, SpriteEffects.None, 0);
+                spriteBatch.End();
+
+                TransitionManager.Instance.Draw(spriteBatch);
+
+                // ++fpsCounter.TotalFrames;
+                spriteBatch.Begin();
+                spriteBatch.DrawString(fpsCounter.Font, string.Format("{0}", fpsCounter.FPS),
+                    new Vector2(10.0f, 20.0f), Color.White);
+                spriteBatch.End();
+
+                if ((isGameOver == true) && (isInMenu == false))
+                {
+                    spriteBatch.Begin();
+                    spriteBatch.DrawString(fpsCounter.Font, "Game over",
+                        new Vector2(graphics.PreferredBackBufferWidth / 2 - 100, graphics.PreferredBackBufferHeight / 2), Color.White);
+                    spriteBatch.End();
+                    isInMenu = true;
+                    isGameOver = false;
+                    fpsCounter.elapsedTime = 70000;
+                }
+
+                if (isLevelCompleted == true)
+                {
+                    spriteBatch.Begin();
+                    spriteBatch.DrawString(fpsCounter.Font, "Level is Completed",
+                        new Vector2(graphics.PreferredBackBufferWidth / 2 - 120, graphics.PreferredBackBufferHeight / 2), Color.White);
+                    spriteBatch.End();
+                    isInLevelMenu = true;
+                    isLevelCompleted = false;
+                    fpsCounter.elapsedTime = 70000;
+                }
+
+                spriteBatch.Begin();
+                spriteBatch.Draw(player.Texture, _touchLocation, Color.White);
                 spriteBatch.End();
             }
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(player.Texture, _touchLocation, Color.White);
-            spriteBatch.End();
-
             base.Draw(gameTime);
+         
         }
         
         // Check for Collision

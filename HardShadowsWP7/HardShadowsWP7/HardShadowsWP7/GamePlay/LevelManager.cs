@@ -53,6 +53,8 @@ namespace HardShadows.GamePlay
         {
             levels.Add(new Level(game, "Level1"));
             levels.Add(new Level(game, "Level2"));
+            levels.Add(new Level(game, "Level3"));
+            levels.Add(new Level(game, "Level4"));
             this.game = game;
             this.spriteBatch = spriteBatch;
             levelIndex = 0;

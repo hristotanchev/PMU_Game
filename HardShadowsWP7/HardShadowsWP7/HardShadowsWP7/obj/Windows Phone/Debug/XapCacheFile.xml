@@ -1,9 +1,9 @@
-﻿<xapCache source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="19.5.2013 г. 16:10:16 ч.">
+﻿<xapCache source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="20.5.2013 г. 20:33:26 ч.">
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\Background.png" archivePath="Background.png" lastWriteTime="3.5.2013 г. 17:10:42 ч." />
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\PhoneGameThumb.png" archivePath="PhoneGameThumb.png" lastWriteTime="3.5.2013 г. 17:10:42 ч." />
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="3.5.2013 г. 17:10:42 ч." />
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="11.5.2013 г. 09:02:53 ч." />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.dll" archivePath="HardShadowsWP7.dll" lastWriteTime="19.5.2013 г. 16:10:16 ч." />
+  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.dll" archivePath="HardShadowsWP7.dll" lastWriteTime="20.5.2013 г. 20:33:25 ч." />
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\AlphaOne.xnb" archivePath="Content\AlphaOne.xnb" lastWriteTime="11.5.2013 г. 09:02:52 ч." />
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\light.xnb" archivePath="Content\light.xnb" lastWriteTime="11.5.2013 г. 09:02:52 ч." />
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\tile.xnb" archivePath="Content\tile.xnb" lastWriteTime="11.5.2013 г. 09:02:52 ч." />
@@ -12,6 +12,8 @@
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\redPresent.xnb" archivePath="Content\redPresent.xnb" lastWriteTime="19.5.2013 г. 14:13:15 ч." />
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\melody.xnb" archivePath="Content\melody.xnb" lastWriteTime="19.5.2013 г. 15:58:28 ч." />
   <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\melody.wma" archivePath="Content\melody.wma" lastWriteTime="19.5.2013 г. 15:58:28 ч." />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level2.txt" archivePath="Content\Level2.txt" lastWriteTime="11.5.2013 г. 08:13:29 ч." />
-  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level1.txt" archivePath="Content\Level1.txt" lastWriteTime="19.5.2013 г. 15:19:43 ч." />
+  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level2.txt" archivePath="Content\Level2.txt" lastWriteTime="20.5.2013 г. 18:35:01 ч." />
+  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level1.txt" archivePath="Content\Level1.txt" lastWriteTime="20.5.2013 г. 17:26:10 ч." />
+  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level3.txt" archivePath="Content\Level3.txt" lastWriteTime="20.5.2013 г. 17:25:00 ч." />
+  <file source="C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level4.txt" archivePath="Content\Level4.txt" lastWriteTime="20.5.2013 г. 18:34:47 ч." />
 </xapCache>

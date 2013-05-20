@@ -56,6 +56,8 @@ C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\redPresent.xnb
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\melody.xnb
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\melody.wma
+C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level3.txt
+C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\Content\Level4.txt
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\HardShadowsWP7.xap
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\obj\Windows Phone\Debug\XapCacheFile.xml
 C:\Users\ICkO\Desktop\PMU_Game\HardShadowsWP7\HardShadowsWP7\HardShadowsWP7\bin\Windows Phone\Debug\AppManifest.xaml
